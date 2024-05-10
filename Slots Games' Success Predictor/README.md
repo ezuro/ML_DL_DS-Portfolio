@@ -18,11 +18,15 @@ The amt of the payout, the length of a losing streaks, or winning streaks.
 ## The Training Data
 To train our model we simulated millions of spins of different Slots Games that the company has developed. 
 
+**Describir que los juegos generaron varios samples **
+
 Considering that we are dealing with an entertainment product, we need to understand that the success of a game will be determined by the level of preference of the consumers, in this case, the players, and how much time do they spend playing them.
 
 ## Solution Approach
 ### Sequential Model
 This problem was tackled from 2 different approaches, first we tried to analyze the payouts that the players received in the first 100 spins they played to confirm if there was a pattern in the sequence of payouts that could be influecing the players to like or dislike a game.
+
+**Describir los resultsados de la primera iteracion, los resultados despues de solo analizar las sequencias cercanas a la media**
 
 ### Feed Forward Neural Network
 In the second approach we used a feed forward neural network. In this case, we feed into the model the distribution of relevant reward events such as near-miss, the lenght of winning streaks and lossing streaks, losses disguised as winnings, and so on.
