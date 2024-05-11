@@ -1,35 +1,27 @@
 # Slots Games' Success Predictor
-This project was built to satisfy the need of a real-life company which is dedicated to developing games for online casinos. This was also my thesis project for my master's in Artificial Intelligence and Deep Learning of the University of Alcala de Henares (Spain).
+This project was built to satisfy the need of a real-life company which is dedicated to developing games for online casinos. This was also my thesis project for my master's in Artificial Intelligence and Deep Learning of the University of Alcala de Henares (Spain). The problem of this project was approached using different models, including:
 
 * Feed Forward Neural Network
 * Sequential Model
 
-## Problem Description
+## Problem Overview
 
-Online casinos are constantly trying to improve their games so that players can be more entertained and wanting to continue playing.
+The company required a model that predicted if a newly designed Slots Game is going to be successful or not. The model would make its predictions based on the way that the game rewards their players after certain time of playing it. In other words, the model should tell if the game will influence their players to continue playing or not, by the way it provides rewards to them in a certain number of spins.
 
-This is why the company needed a model that helped them predict if a Slots Game was going to be a market success or a market failure, by analyzing the way the game rewarded the players.
-In other words, a model that could tell if the way that a game rewards a player, will influence him/her to continue playing.
+The objective is to verify if there is any pattern, in the reward systems of Slots Games, that would make them successful or un-successful, and to design a model that could indentify this pattern and predict it.
 
 <img src="images/slotsGamesPic.PNG" alt="drawing" width="250"/>
 
+To build the model we used the results of thousands of spins during different game sessions of old Slots Games, both, successful and unsuccessful. Be aware, that the level of success or failure of an entertainment product such as a video game, is determined by the preference of its audience, and how much time they spent playing it.
+
+I built two models to tackle this issue, one where it was merely analyzed the 'net wins' or 'pay outs' that a player had in a n-spins game session. And another, where it was analyzed different aspects relating to the rewards of the game, such as the number of free spins won, the length of continuous winning and lossing streaks, the frequency of 'near-miss' and 'losses disguised as wins' events and so on.
+
+
+----
 The amt of the payout, the length of a losing streaks, or winning streaks.
 
-## The Training Data
-To train our model we simulated millions of spins of different Slots Games that the company has developed. 
-
-**Describir que los juegos generaron varios samples **
-
-Considering that we are dealing with an entertainment product, we need to understand that the success of a game will be determined by the level of preference of the consumers, in this case, the players, and how much time do they spend playing them.
-
 ## Solution Approach
-### Sequential Model
-This problem was tackled from 2 different approaches, first we tried to analyze the payouts that the players received in the first 100 spins they played to confirm if there was a pattern in the sequence of payouts that could be influecing the players to like or dislike a game.
-
-**Describir los resultsados de la primera iteracion, los resultados despues de solo analizar las sequencias cercanas a la media**
-
-### Feed Forward Neural Network
-In the second approach we used a feed forward neural network. In this case, we feed into the model the distribution of relevant reward events such as near-miss, the lenght of winning streaks and lossing streaks, losses disguised as winnings, and so on.
+This problem was tackled from 2 different approaches.
 
 Trying to find if there is a pattern in the payout sequence of the games that influences the player to continue plyaing, using a sequential model.
 
