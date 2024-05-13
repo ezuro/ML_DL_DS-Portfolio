@@ -28,7 +28,7 @@ As mentioned, the issue was tackled from different angles. One of them being the
 
 From the pay outs of each spin in a player's game session, we could form a sequence of pay outs, that can be fed into a sequential neural network. However, we can also use a sequence of the value of the player's balance after each spin, as the balance is directly affected by the pay outs the player received and it better draws the trajectory of the results obtained by the player. We can easily see how the player's balance increases or decreases according to the pay outs received from the start to the end of the game session.
 
-<img src="images/slotsGamesPic.PNG" alt="drawing" width="250"/>
+<img src="images/seqBalance.png" alt="drawing" width="550"/>
 
 The above image shows a graph of the balance's trajectory of different players in different game sessions for a corresponding Slots Game (precisely 1000 game sessions per Slots Game). We can see that all of the players' balance start at $100 and they follow certain path until they reach $0 after a certain number of spins.
 
