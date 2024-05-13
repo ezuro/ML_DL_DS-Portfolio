@@ -37,7 +37,13 @@ The idea is to feed the sequences into a neural network and tell the model which
 ### 2.1.1 - Model Structure
 As mentioned, for this sequence data I built 2 different models a Recurrent Neural Network, using Long-Short-Term Memory layers, and a Convolutional Neural Network, using convolutional layers of 1 Dimension.
 
-For both models we tested different activation, optimizer and loss functions, however the best results were achieved using Rectified Linear Unit (ReLU) as activation function for the hidden layers, Sigmoid as the activation function in the output layer, I used Stochastic Gradient Descent as the optimizer and Binary Cross-Entropy as the loss function. The models were kept simple, to avoid overfitting problems due to a high complexity.
+For both models we tested different activation, optimizer and loss functions, however the best results were achieved using:
+* Rectified Linear Unit (ReLU) as activation function for the hidden layers
+* Sigmoid as the activation function in the output layer
+* Stochastic Gradient Descent as the optimizer
+* Binary Cross-Entropy as the loss function.
+
+The models were kept simple (just a few layers), to avoid overfitting problems due to a high complexity.
 
 Recurrent NN structure:
 ```python 
@@ -83,6 +89,8 @@ def cnn_model (inputShape,learningRate):
 ```
 
 ### 2.1.2 - Results Obtained
+
+
 
 We first used all the game sessions and obtained these results.
 
