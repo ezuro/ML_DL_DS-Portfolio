@@ -37,19 +37,50 @@ The idea is to feed the sequences into a neural network and tell the model which
 ### 2.1.1 - Model Structure
 As mentioned, for this sequence data I built 2 different models a Recurrent Neural Network, using Long-Short-Term Memory layers, and a Convolutional Neural Network, using convolutional layers of 1 Dimension.
 
-For both models we tested different activation and loss functions, however the best results were achieved using Rectified Linear Unit (ReLU) as activation function for the hidden layers, Sigmoid as the activation function in the output layer and Binary Cross-Entropy as the loss function.
+For both models we tested different activation, optimizer and loss functions, however the best results were achieved using Rectified Linear Unit (ReLU) as activation function for the hidden layers, Sigmoid as the activation function in the output layer, I used Stochastic Gradient Descent as the optimizer and Binary Cross-Entropy as the loss function. The models were kept simple, to avoid overfitting problems due to a high complexity.
 
-I kept the models fairly simple, to avoid overfitting due to a very complex function.
-
+Recurrent NN structure:
 ```python 
-print('Hello World')
+def recurrent_model(inputShape,learningRate):
+    model=Sequential()
+    model.add(Bidirectional(LSTM(64,return_sequences=True,activation='relu'), input_shape=(inputShape,1)))     
+    model.add(Bidirectional(LSTM(24,activation='relu',return_sequences=True)))
+    model.add(Bidirectional(LSTM(5,activation='relu')))
+
+    model.add(Dropout(0.2))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(32, activation='relu'))
+    model.add(Dense(1, activation='sigmoid'))
+    
+    opt = keras.optimizers.SGD(learning_rate=learningRate)
+    model.compile(loss='binary_crossentropy', optimizer=opt,metrics=['accuracy'])
+    
+    return model
+ 
 ```
+Convolutional NN structure:
+```python 
+def cnn_model (inputShape,learningRate):
+    model = Sequential()
 
-binary cross entropy as loss function.
-sigmoid
-relu
-not a big and complex model to avoid overfitting. I decided to keep it short
+    model.add(Conv1D(filters=254, kernel_size=128,  activation='relu',input_shape=(inputShape,1)))
+    model.add(MaxPooling1D(pool_size=2))
+    
+    model.add(Dropout(0.4))
 
+    model.add(Conv1D(filters=128, kernel_size=35, activation='relu'))
+    model.add(MaxPooling1D(2))
+
+
+    model.add(Flatten())
+    model.add(Dense(128, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(1, activation='sigmoid'))
+    opt = keras.optimizers.SGD(learning_rate=learningRate)
+    model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
+
+    return model
+```
 
 ### 2.1.2 - Results Obtained
 
