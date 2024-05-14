@@ -16,6 +16,8 @@ The objective is to verify if there is any pattern, in the reward systems of Slo
 
 <img src="images/slotsGamesPic.PNG" alt="drawing" width="250"/>
 
+*figure 1.*
+
 To train the model we used the results of thousands of spins during different game sessions of both, successful and unsuccessful,  Slots Games. Be aware, that the level of success or failure of an entertainment product such as a video game, is determined by the preference of its audience, and how much time they spent playing it. This was the measure we used to rank the Slots Games whose data was used to train the model.
 
 I built two models to tackle this issue, one where it was merely analyzed the 'net wins' or 'pay outs' that a player had in a n-spins game session. And another, where it was analyzed different aspects relating to the rewards of the game, such as the payout amounts, the number of free spins won, the length of continuous winning and lossing streaks, the frequency of 'near-miss' and 'losses disguised as wins' events, and so on, also within a n-spins game session.
@@ -28,7 +30,9 @@ As mentioned, the issue was tackled from different angles. One of them being the
 
 From the pay outs of each spin in a player's game session, we could form a sequence of pay outs, that can be fed into a sequential neural network. However, we can also use a sequence of the value of the player's balance after each spin, as the balance is directly affected by the pay outs the player received and it better draws the trajectory of the results obtained by the player. We can easily see how the player's balance increases or decreases according to the pay outs received from the start to the end of the game session.
 
-<img src="images/seqBalance.png" alt="drawing" width="550"/>
+<img src="images/seqBalance.png" alt="drawing" width="600"/>
+
+*figure 2.*
 
 The above image shows a graph of the balance's trajectory of different players in different game sessions for a corresponding Slots Game (precisely 1000 game sessions per Slots Game). We can see that all of the players' balance start at $100 and they follow certain path until they reach $0 after a certain number of spins.
 
@@ -38,10 +42,10 @@ The idea is to feed the sequences into a neural network and tell the model which
 As mentioned, for this sequence data I built 2 different models a Recurrent Neural Network, using Long-Short-Term Memory layers, and a Convolutional Neural Network, using convolutional layers of 1 Dimension.
 
 For both models we tested different activation, optimizer and loss functions, however the best results were achieved using:
-* Rectified Linear Unit (ReLU) as activation function for the hidden layers
-* Sigmoid as the activation function in the output layer
-* Stochastic Gradient Descent as the optimizer
-* Binary Cross-Entropy as the loss function.
+* **Rectified Linear Unit (ReLU)** as activation function for the hidden layers
+* **Sigmoid** as the activation function in the output layer
+* **Stochastic Gradient Descent (SGD)** as the optimizer
+* **Binary Cross-Entropy** as the loss function.
 
 The models were kept simple (just a few layers), to avoid overfitting problems due to a high complexity.
 
@@ -96,12 +100,21 @@ The cnn model was first trained with 1000 sequences per Slots Game (correspondin
 
 <img src="images/cnn_model1_noise.png" alt="drawing" width="350"/>
 
-We can appreciate how the model is only able to classify one particular category (successful).
+*figure 3.*
 
+We can appreciate how the predictions of the model were 70% true positives (successful category) and only 30% true negatives (unsuccessful category), which means that the model is only able to classify one particular category, 'successful'.
 
-We first used all the game sessions and obtained these results.
+To try to mitigate the noise problem brought by the outlier sequences, I trained the model a second time, but now with the game sessions that were closer to the 'median sequence'. At figure 2, we can appreciate how the players' balance start at $100 and end at $0 after certain number of spins, for each of the game sessions the number of spins in which the game session ended is different, thus creating a range of 'final spins' for each of the Slots Games (The gray block for each game in figure 2). 
 
-However there was too much outliers, so we decided to use only the sequences that fell in the third quantile and that were much closer to the median.
+I used then, the sequences that ended in the third quantile of this range (from the 40th to the 60th percentiles), which are the ones closer to the median, to train our model one more time.
+
+<img src="images/cnn_model2.png" alt="drawing" width="350"/>
+
+*figure 4.*
+
+In this second attempt, we can see that the performance of the model improved greatly, although is still far from a high accuracy. The model's prediction were 70% true positives and now almost 60% true negatives.
+
+From these results we can conclude that there is indeed certain pattern in the way a successful Slots Game pays out to its players different than a unsuccessful one. However, the pay outs alone are probably not enough to predict if a Slots Game will be successful or not with a high accuracy. Specially due to the noise we would observe in a single Slots Game's game session.
 
 
 ## 2.2 - Feed Forward Neural Network
