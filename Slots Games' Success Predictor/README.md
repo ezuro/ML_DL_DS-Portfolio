@@ -126,7 +126,14 @@ The information of theses variables was summarized into statistical distribution
 
 
 ### Structure used
-For this model 
+For this model we also tested different hyperparameters, however the ones that returned the best results were the ones listed below using a learning rate of 0.001:
+
+* **Rectified Linear Unit (ReLU)** as activation function for the hidden layers
+* **Sigmoid** as the activation function in the output layer
+* **Adam** as the optimizer
+* **Binary Cross-Entropy** as the loss function.
+
+
 
 
 ### Results Obtained
