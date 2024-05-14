@@ -138,3 +138,5 @@ For this model we also tested different hyperparameters, however the ones that r
 
 ### Results Obtained
 
+After training our model we tested it on new data from unseen Slots Games, the predictions returned were the following:
+
