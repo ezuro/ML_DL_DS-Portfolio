@@ -118,7 +118,12 @@ From these results we can conclude that there is indeed certain pattern in the w
 
 
 ## 2.2 - Feed Forward Neural Network
-Given the results of the sequential model were not so satisfactory due to the possible noise that can be found in the pay out sequences we decided to include other aspects relating to the rewards of the games and summarize them into their distributions and feed them into a Feed Forward neural network. 
+
+Given the results obtained analyzing the Slots Games' pay outs with the sequential models, I built a Feed Forward neural network that would analyze other aspects of the reward system of Slots Games to see if it would be able to make more accurate predictions.
+
+The aspects of the reward systems that were included to train this model were the *spins pay out, the free games won, near-miss events, loses disguised as winnings, and Losing and Winning Streaks*.
+
+
 
 Feeding the summarized distribution of the game's rewards into a Feed Forward neural network.
 
