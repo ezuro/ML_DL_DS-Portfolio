@@ -125,8 +125,9 @@ The aspects of the reward systems that were included to train this model were th
 The information of theses variables was summarized into statistical distributions for each of the game sessions, so that the data would be fed easily into the model and also to try to reduce the existing noise. The statistics that were extracted for each of the variables are the *minimum, maximum, mean, standard deviation, median, mode, kurtosis, skewness, 25th percentile and 75th percentile*.
 
 
-
-
 ### Structure used
+For this model 
+
+
 ### Results Obtained
 
