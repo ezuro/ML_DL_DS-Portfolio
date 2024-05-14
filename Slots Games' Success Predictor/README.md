@@ -140,4 +140,4 @@ For this model we also tested different hyperparameters, however the ones that r
 
 After training our model we tested it on new data from unseen Slots Games, the predictions returned were the following:
 
-<img src="images/ffnn_model.png" alt="drawing" width="350"/>
+<img src="images/ffnn_model.PNG" alt="drawing" width="350"/>
