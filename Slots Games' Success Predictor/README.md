@@ -6,7 +6,6 @@ This project was built to satisfy the need of a real-life company which is dedic
   * Recurrent Neural Network (LSTM)
   * Convolutional Nerual Network (1 Dimensional Convolutions)
 
-.... content page
 
 # 1 - Problem Overview
 
@@ -121,7 +120,7 @@ From these results we can conclude that there is indeed certain pattern in the w
 
 Given the results obtained analyzing the Slots Games' pay outs with the sequential models, I built a Feed Forward neural network that would analyze other aspects of the reward system of Slots Games to see if it would be able to make more accurate predictions.
 
-The aspects of the reward systems that were included to train this model were the *spins pay out, the free games won, near-miss events, loses disguised as winnings, and Losing and Winning Streaks*.
+The aspects of the reward systems that were included to train this model were the *spins pay out, the free games won, near-miss events, loses disguised as winnings, and Losing and Winning Streaks*. The information of theses variables was summarized into statistical distributions for each of the game sessions, so that the data would be fed easily into the model and also to try to reduce the existing noise. The statistics that were extracted for each of the variables are the *minimum, maximum, mean, standard deviation, median, mode, kurtosis, skewness, 25th percentile and 75th percentile*.
 
 
 
