@@ -90,6 +90,13 @@ def cnn_model (inputShape,learningRate):
 
 ### 2.1.2 - Results Obtained
 
+From both models the one that returned better results was the convolutional model using a learning rate of 0.001. However, it didn't make good predictions at first, I needed to remove noisy training data to get more decent results in a second attempt.
+
+The cnn model was first trained with 1000 sequences per Slots Game (corresponding to the 1000 game session per game). However, from these 1000 game sessions there are several that introduce a great amount of noise due to the inherent volatility and randomness of Slots Games. As we can see in the confusion matrix below the first convolutional model was unable to generalize properly:
+
+<img src="images/cnn_model1_noise.png" alt="drawing" width="350"/>
+
+We can appreciate how the model is only able to classify one particular category (successful).
 
 
 We first used all the game sessions and obtained these results.
