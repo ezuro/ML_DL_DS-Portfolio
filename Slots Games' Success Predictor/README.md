@@ -120,17 +120,12 @@ From these results we can conclude that there is indeed certain pattern in the w
 
 Given the results obtained analyzing the Slots Games' pay outs with the sequential models, I built a Feed Forward neural network that would analyze other aspects of the reward system of Slots Games to see if it would be able to make more accurate predictions.
 
-The aspects of the reward systems that were included to train this model were the *spins pay out, the free games won, near-miss events, loses disguised as winnings, and Losing and Winning Streaks*. The information of theses variables was summarized into statistical distributions for each of the game sessions, so that the data would be fed easily into the model and also to try to reduce the existing noise. The statistics that were extracted for each of the variables are the *minimum, maximum, mean, standard deviation, median, mode, kurtosis, skewness, 25th percentile and 75th percentile*.
+The aspects of the reward systems that were included to train this model were the *spins pay out, the free games won, near-miss events, loses disguised as winnings, Losing and Winning Streaks, Distinct Pay Out, and Total Played Spins*. 
+
+The information of theses variables was summarized into statistical distributions for each of the game sessions, so that the data would be fed easily into the model and also to try to reduce the existing noise. The statistics that were extracted for each of the variables are the *minimum, maximum, mean, standard deviation, median, mode, kurtosis, skewness, 25th percentile and 75th percentile*.
 
 
 
-Feeding the summarized distribution of the game's rewards into a Feed Forward neural network.
-
-
-
-We decided to include the following variables.
-
-For each variable we decided to include the following statistics.
 
 ### Structure used
 ### Results Obtained
